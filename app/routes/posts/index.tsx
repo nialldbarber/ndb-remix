@@ -1,7 +1,7 @@
 import {Link, useLoaderData} from 'remix';
 import type {MetaFunction} from 'remix';
-import {getPosts} from '~/posts';
-import type {Posts} from '~/posts';
+import {getPosts} from '~/utils/posts';
+import type {Posts} from '~/utils/posts';
 
 export let meta: MetaFunction = () => ({
   title: 'About page!!',
