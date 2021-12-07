@@ -1,5 +1,8 @@
 import {supabase} from '~/client';
 import invariant from 'tiny-invariant';
+import parseFrontMatter from 'front-matter';
+import {marked} from 'marked';
+import {mapSingleArrayToObject} from '~/utils/mapSingleArrayToObject';
 
 export type Posts = {
   id?: number;
@@ -10,20 +13,13 @@ export type Posts = {
 
 export async function getPost(slug: string): Promise<Posts> {
   let {data, error} = await supabase.from('posts').select().eq('slug', slug);
-  let post: Posts = {};
-
-  if (error) {
-    console.log(error);
-  }
-
+  if (error) console.log(error);
   invariant(data, 'expected data');
-
-  for (const item of data) {
-    for (const key in item) {
-      post[key] = item[key];
-    }
-  }
-
+  // transform that data into markdown readable code
+  let post = mapSingleArrayToObject(data);
+  let {body} = parseFrontMatter(post.content);
+  let html = marked(body);
+  post.content = html;
   return post;
 }
 

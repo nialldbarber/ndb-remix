@@ -19,11 +19,10 @@ export default function PostsIndex() {
     <div>
       <h1>Posts page!</h1>
       <ul>
-        {posts.map(({id, title, slug, content}) => (
+        {posts?.map(({id, title, slug, content}) => (
           <li key={id}>
             <Link to={slug}>
               <h3>{title}</h3>
-              <span>{content}</span>
             </Link>
           </li>
         ))}

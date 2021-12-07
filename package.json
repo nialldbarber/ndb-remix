@@ -13,6 +13,8 @@
     "@remix-run/serve": "^1.0.6",
     "@remix-run/vercel": "^1.0.6",
     "@supabase/supabase-js": "^1.28.2",
+    "front-matter": "^4.0.2",
+    "marked": "^4.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-markdown": "^7.1.1",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^1.0.6",
+    "@types/marked": "^4.0.1",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "prettier": "^2.5.0",
