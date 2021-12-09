@@ -1,8 +1,6 @@
 /**
  * Given an array with _one_ object, this will return
  * the object
- * @param data
- * @returns
  */
 export function mapSingleArrayToObject(data: Array<any>) {
   let obj: Record<string, string> = {};
